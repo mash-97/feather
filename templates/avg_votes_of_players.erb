@@ -43,7 +43,7 @@
       <% possible_pairs.each_with_index do |k, indx| a, b = *k %>
         <tr>
           <td><%= indx+1 %></td>
-          <td><%= [a[0].snakeCase(), b[0].snakeCase()].join(' - ') %></td>
+          <td><%= ["#{a[0].snakeCase()} (#{a[1]})", "#{b[0].snakeCase()} (#{b[1]})"].join(' - ') %></td>
         </tr>
       <% end %>
     </tbody>
