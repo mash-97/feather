@@ -132,6 +132,10 @@ def deletePlayer(player_name)
   saveVoteData(data)
 end
 
+def hardReset()
+  return saveVoteData(VOTES_DATA_INIT)
+end
+
 def updateVote(ip, player_name, vote)
   ip = ip.strip()
   player_name = player_name.strip.downcase()

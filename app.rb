@@ -169,3 +169,18 @@ get('/admin-ungenerate-pairs') do
     HTML
   end
 end
+
+post('/admin-hard-reset') do
+  @title = 'Feather | Admin | Reset Votes for IPs'
+  @request = request
+  hardReset()
+
+  erb :default_layout, :layout => false do
+    erb <<~HTML
+      <h1 class='w3-text-red w3-margin-top'>A Hard Reset Has Been Made!</h1>
+      <script type='text/javascript'>
+        setTimeout(()=>{location.replace('/admin')}, 10000)
+      </script>
+    HTML
+  end
+end
