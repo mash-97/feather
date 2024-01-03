@@ -5,6 +5,7 @@ VOTES_FILE = File.join(VOTES_FOLDER, 'votes.yaml')
 VOTES_DATA_INIT = {
   players: [],
   votes: {}, 
+  voted: [],
   pairs_generated: false
 }
 
