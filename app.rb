@@ -170,8 +170,8 @@ get('/admin-ungenerate-pairs') do
   end
 end
 
-post('/admin-hard-reset') do
-  @title = 'Feather | Admin | Reset Votes for IPs'
+get('/admin-hard-reset') do
+  @title = 'Feather | Admin | Hard Reset'
   @request = request
   hardReset()
 
