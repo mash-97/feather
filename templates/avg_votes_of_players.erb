@@ -1,0 +1,54 @@
+<% if players.length != 0 then %>
+
+  <table class="w3-table w3-striped w3-border w3-margin-top">
+    <caption>Avg. Votes of Players</caption>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Player Names</th>
+        <th>Votes</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% players.each_with_index do |k, indx| player_name, avg_vote = *k %>
+        <tr>
+          <td><%= indx+1 %></td>
+          <td><%= player_name.snakeCase() %></td>
+          <td><%= avg_vote %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+
+<% else %>
+  <h1 class='w3-text-khaki w3-margin-top'>No Players Inserted Yet!</h1>
+<% end %>
+
+
+<% if possible_pairs.length != 0 then %>
+
+  <table class="w3-table w3-striped w3-border w3-margin-top">
+    <caption>Possible Pairs</caption>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Pairs</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% possible_pairs.each_with_index do |k, indx| a, b = *k %>
+        <tr>
+          <td><%= indx+1 %></td>
+          <td><%= [a[0].snakeCase(), b[0].snakeCase()].join(' - ') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+
+<% end %>

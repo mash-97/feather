@@ -1,0 +1,42 @@
+<% if players.length != 0%>
+
+  <table class="w3-table w3-striped w3-border w3-margin-top">
+    <caption>Vote Players</caption>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Player Names</th>
+        <th>Votes</th>
+      </tr>
+    </thead>
+    
+    <form method='post' action='/vote'>
+      <tbody>
+        <% players.each_with_index do |k, indx| player_name, vote = *k %>
+          <tr>
+            <td><%= indx+1 %></td>
+            <td><%= player_name.snakeCase() %></td>
+            <td>
+              <select name="<%= player_name %>" id="<%= player_name %>">
+                <% (0..5).each do |i| %>
+                  <% if vote == i then %>
+                    <option value="<%= i %>" selected><%= i %></option>
+                  <% else %>
+                  <option value="<%= i %>" ><%= i %></option>
+                  <% end%>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+        <% end %>
+        
+      </tbody>
+      <tfoot>
+        <tr><td colspan="3" class="w3-center"><button class="w3-button w3-indigo" type='submit'>Submit</button></td></tr>
+      </tfoot>
+    </form>
+  </table>
+
+<% else %>
+  <h1 class='w3-text-khaki w3-margin-top'>No Players Inserted Yet!</h1>
+<% end %>
