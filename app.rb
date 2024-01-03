@@ -23,9 +23,6 @@ end
 get('/vote') do
   @title = 'Feather | Vote'
   @request = request
-  puts()
-  puts("==> inside vote, ip: #{request.ip}")
-  puts()
   if not getVotedIPs().include?(@request.ip.strip()) then
     erb :default_layout, :layout => false do
       erb :vote, locals: {players: votesOfPlayerAgainst(@request.ip.to_s)}
@@ -78,7 +75,6 @@ post('/admin-insert-players') do
   @title = 'Feather | Insert Player'
   @request = request
   @data = request.params
-  puts("@data: #{@data}")
   player_names = @data['player_names'].split(',').collect{|n| n.strip}
   insertPlayers(player_names)
   redirect to('/avg-votes-of-players')
