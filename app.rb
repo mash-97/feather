@@ -184,3 +184,10 @@ get('/admin-hard-reset') do
     HTML
   end
 end
+
+get('/sleep/:seconds') do |seconds|
+  puts("#>> Threaded: #{settings.threaded}")
+  sleep(seconds.to_i)
+  redirect back
+end
+
