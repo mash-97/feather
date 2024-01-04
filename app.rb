@@ -19,7 +19,6 @@ get('/') do
   end
 end
 
-
 get('/vote') do
   @title = 'Feather | Vote'
   @request = request
@@ -52,7 +51,6 @@ post('/vote') do
   updateVotesForIP(@request.ip, votes)
   redirect to('/avg-votes-of-players')
 end
-
 
 get('/admin') do 
   @title = 'Feather | Admin'
