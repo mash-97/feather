@@ -55,9 +55,30 @@ end
 get('/admin') do 
   @title = 'Feather | Admin'
   @request = request
+  redirect to('/') if not @request.session['admin']
   erb :default_layout, :layout => false do
     erb :admin, locals: {data: loadVoteData()}
   end
+end
+
+get('/admin-access') do
+  @title = 'Feather | Admin Access'
+  @request = request
+  redirect to('/admin') if @request.session['admin']
+  erb :default_layout, :layout => false do
+    erb :admin_access
+  end
+end
+post('/admin-access') do
+  @title = 'Feather | Admin Access'
+  @request = request
+  @data = request.params
+
+  if @data['admin-password'] == 'feather box' then
+    @request.session['admin'] = true
+    redirect to('/admin')
+  end
+  redirect to('/')
 end
 
 get('/admin-insert-players') do
