@@ -173,7 +173,7 @@ def averageVoteOfAllPlayers()
     data[:votes][ip].each{|player_name, vote| players_votes[player_name] << vote}
   }
   players_votes.each{|player, votes|
-    players_votes[player] = (votes.sum.to_f/votes.length).round(2)
+    players_votes[player] = (votes.sum.to_f/(votes.length|1)).round(2)
   }
 
   return players_votes

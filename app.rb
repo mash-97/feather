@@ -84,6 +84,7 @@ get('/avg-votes-of-players') do
 
   players = averageVoteOfAllPlayers()
   players = players.to_a.sort{|x, y| x[1]<=>y[1]}.reverse.to_h
+
   pp = []
 
   if getPairGenerationStatus() then 
