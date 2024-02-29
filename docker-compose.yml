@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  web:
+    image: mash97/feather:rs
+    build: .
+    command: ruby ./app.rb
+    volumes:
+      - .:/usr/src/app
+    
+    ports:
+      - 3000:8080
+
